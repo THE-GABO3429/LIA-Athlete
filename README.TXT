@@ -4,9 +4,9 @@ Tell the reader (someone who does not know anything about this project)
 all they need to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
+PROJECT TITLE: 
+PURPOSE OF PROJECT: The purpose of this project is to manage athletes, their teams, equipments and activities
+VERSION or DATE: April 28,2025
 HOW TO START THIS PROJECT:
-AUTHORS:
+AUTHORS: Fritz Gerald Sarabia, Dylan Scalia, Gabriel Roberts-Palacios
 USER INSTRUCTIONS:
