@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Actitvity here.
  *
@@ -9,7 +9,13 @@ public class Actitvity
 {
     // instance variables - replace the example below with your own
     private int x;
-
+    //+ listAll : ArrayList
+    //+ intensity : Double
+    //+ Details : String
+    //+ Distance : Int
+    //+ listAthletesByActivitys : HashMap
+    //+ listAllModes
+    //+ totalCaloriesBurntInActivity : Int
     /**
      * Constructor for objects of class Actitvity
      */

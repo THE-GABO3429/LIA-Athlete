@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Equipment here.
  *
@@ -9,6 +9,7 @@ public class Equipment
 {
     // instance variables - replace the example below with your own
     private int x;
+    //+ listAllEquipments : ArrayList
 
     /**
      * Constructor for objects of class Equipment
@@ -25,9 +26,12 @@ public class Equipment
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public ArrayList listAllEquipments()
     {
         // put your code here
-        return x + y;
+        new ArrayList<Equipment> equ =
+        ArrayList<>();
+        equ.add("Ball");
+        
     }
 }

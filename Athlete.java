@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Athlete here.
  *
@@ -10,8 +10,8 @@ public class Athlete
     // instance variables - replace the example below with your own
     private int x;
     //+ listActivitys : ArrayList
-    //+ burntCalories : Int
-    //+ getTotalDistance : Int
+    //+ AtheleDetails: String
+    //+ gender : String(Male, Female, Other)
     /**
      * Constructor for objects of class Athlete
      */
@@ -27,9 +27,35 @@ public class Athlete
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public int burntCalories(int bCal)
     {
         // put your code here
-        return x + y;
+        bCal = 100;
+        return bCal;
+    }
+    
+    public int getTotalDistanceInMeters(int distance){
+        distance = 500;
+        return distance;
+    }
+    
+    private int age(int age){
+        age = 30;
+        return age;
+    }
+    
+    private int weightInKg(int weight){
+        weight = 200;
+        return weight;
+    }
+    
+    private String gender(String Male, String Female, String Other){
+        
+    }
+    
+    public String AtheleDetails(){
+        System.out.println("Their age: " + this.age());
+        System.out.println("Their weight: " + this.weight() + "Kg");
+         System.out.println("Their gender: " + this.gender());
     }
 }
