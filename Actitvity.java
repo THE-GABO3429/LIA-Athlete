@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 /**
  * Write a description of class Actitvity here.
  *
@@ -9,7 +10,7 @@ public class Actitvity
 {
     // instance variables - replace the example below with your own
     private int x;
-    //+ listAll : ArrayList
+    
     //+ intensity : Double
     //+ Details : String
     //+ Distance : Int
@@ -21,10 +22,13 @@ public class Actitvity
      */
     public Actitvity()
     {
-        // initialise instance variables
-        x = 0;
+        
     }
-
+    
+    public void listAllActivity(){
+        
+    }
+    
     /**
      * An example of a method - replace this comment with your own
      *

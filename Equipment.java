@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Write a description of class Equipment here.
  *
@@ -10,14 +12,17 @@ public class Equipment
     // instance variables - replace the example below with your own
     private int x;
     //+ listAllEquipments : ArrayList
-
+    private ArrayList <String> equ;
+    private HashMap<String, String> activity;
     /**
      * Constructor for objects of class Equipment
      */
     public Equipment()
     {
         // initialise instance variables
-        x = 0;
+        new HashMap<String, String>();
+        activity.put("Soccer", "Ball");
+        
     }
 
     /**
@@ -26,12 +31,8 @@ public class Equipment
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public ArrayList listAllEquipments()
+    public void listAllEquipments()
     {
-        // put your code here
-        new ArrayList<Equipment> equ =
-        ArrayList<>();
-        equ.add("Ball");
-        
+        System.out.println();
     }
 }

@@ -19,6 +19,8 @@ public class Athlete
     {
         // initialise instance variables
         x = 0;
+        
+        
     }
 
     /**
@@ -27,35 +29,35 @@ public class Athlete
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int burntCalories(int bCal)
+    public void burntCalories()
     {
         // put your code here
-        bCal = 100;
-        return bCal;
+        int bCal = 100;
+        System.out.println(bCal);
     }
     
-    public int getTotalDistanceInMeters(int distance){
-        distance = 500;
-        return distance;
+    public void getTotalDistanceInMeters(){
+        int distance = 500;
+        System.out.println(distance);
     }
     
-    private int age(int age){
-        age = 30;
-        return age;
+    private void age(){
+        int age = 30;
+        System.out.println(age);
     }
     
-    private int weightInKg(int weight){
-        weight = 200;
-        return weight;
+    private void weightInKg(){
+        int weight = 200;
+        System.out.println(weight);
     }
     
-    private String gender(String Male, String Female, String Other){
-        
-    }
+    //private String gender(String Male, String Female, String Other){
+    //    
+    //}
     
-    public String AtheleDetails(){
-        System.out.println("Their age: " + this.age());
-        System.out.println("Their weight: " + this.weight() + "Kg");
-         System.out.println("Their gender: " + this.gender());
-    }
+    //public String AtheleDetails(){
+    //    System.out.println("Their age: " + age());
+    //    System.out.println("Their weight: " + this.weight() + "Kg");
+    //    System.out.println("Their gender: " + this.gender());
+    //}
 }
