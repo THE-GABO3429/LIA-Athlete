@@ -10,7 +10,7 @@ public class Actitvity
 {
     // instance variables - replace the example below with your own
     private int x;
-    
+    private HashMap<String, String> mode;
     //+ intensity : Double
     //+ Details : String
     //+ Distance : Int
@@ -25,8 +25,8 @@ public class Actitvity
         
     }
     
-    public void listAllActivity(){
-        
+    public void listActivitybyMode(){
+        new HashMap<String, String>();
     }
     
     /**
