@@ -21,11 +21,7 @@ public class Equipment
     {
         // initialise instance variables
         new HashMap<String, String>();
-        activity.put("Soccer", "Ball");
-        activity.put("Basket Ball", "Ball");
-        activity.put("Hockey", "Puck" + "Stick");
-        activity.put("Running", "Shoes");
-        activity.put("Batminten", "Racket" + "Birdie ");
+        activity.put("Hockey", "Skate");
     }
 
     /**
