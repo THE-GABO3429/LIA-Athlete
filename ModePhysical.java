@@ -1,3 +1,4 @@
+import java.util.*;
 
 /**
  * Write a description of class ModePhysical here.
@@ -9,14 +10,19 @@ public class ModePhysical
 {
     // instance variables - replace the example below with your own
     private int x;
-
+    private ArrayList <String> mode = new ArrayList<>();
+    //private HashMap<String, String> activity;
     /**
-     * Constructor for objects of class ModePhysical
+     * Constructor for objects of class Equipment
      */
     public ModePhysical()
     {
         // initialise instance variables
-        x = 0;
+        mode.add("Skate");
+        mode.add("Bike");
+        mode.add("Skate");
+        mode.add("Skate");
+        mode.add("Skate");
     }
 
     /**
@@ -25,9 +31,10 @@ public class ModePhysical
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public void listAllMode()
     {
-        // put your code here
-        return x + y;
+        for(String equipment : mode){
+            System.out.println(equipment);
+        }
     }
 }

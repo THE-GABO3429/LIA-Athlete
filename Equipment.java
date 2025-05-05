@@ -9,10 +9,7 @@ import java.util.HashMap;
  */
 public class Equipment
 {
-    // instance variables - replace the example below with your own
-    private int x;
-    //+ listAllEquipments : ArrayList
-    private ArrayList <String> equ;
+    private ArrayList <String> equ = new ArrayList<>();
     private HashMap<String, String> activity;
     /**
      * Constructor for objects of class Equipment
@@ -20,8 +17,11 @@ public class Equipment
     public Equipment()
     {
         // initialise instance variables
-        new HashMap<String, String>();
-        activity.put("Hockey", "Skate");
+        equ.add("Skate");
+        equ.add("Bike");
+        equ.add("Skate");
+        equ.add("Skate");
+        equ.add("Skate");
     }
 
     /**
@@ -32,8 +32,8 @@ public class Equipment
      */
     public void listAllEquipments()
     {
-        System.out.println();
+        for(String equipment : equ){
+            System.out.println(equipment);
+        }
     }
-    
-
 }

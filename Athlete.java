@@ -8,18 +8,21 @@ import java.util.ArrayList;
 public class Athlete
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private int yearOfBirth;
+    private int weight;
+    private String gender;
+    
     //+ listActivitys : ArrayList
     //+ AtheleDetails: String
     //+ gender : String(Male, Female, Other)
     /**
      * Constructor for objects of class Athlete
      */
-    public Athlete()
+    public Athlete(int yearOfBirth, int weight, String gender)
     {
-        // initialise instance variables
-        x = 0;
-        
+        this.yearOfBirth = yearOfBirth;
+        this.weight = weight;
+        this.gender = gender;
         
     }
 
@@ -41,23 +44,34 @@ public class Athlete
         System.out.println(distance);
     }
     
-    private void age(){
-        int age = 30;
-        System.out.println(age);
-    }
     
-    private void weightInKg(){
-        int weight = 200;
-        System.out.println(weight);
+    public static void main(String[] creatAthletes) {
+        Athlete a = new Athlete(25, 70, "Male");
+        System.out.println();
     }
+
+
+    
+    
+    //public int age(insertAge){
+      //  return age;
+    //}
+    
+    //private void weightInKg(){
+     //   int weight = 200;
+       // System.out.println(weight);
+    //}
     
     //private String gender(String Male, String Female, String Other){
     //    
     //}
     
-    //public String AtheleDetails(){
-    //    System.out.println("Their age: " + age());
-    //    System.out.println("Their weight: " + this.weight() + "Kg");
-    //    System.out.println("Their gender: " + this.gender());
-    //}
+    public String atheleDetails(){
+        return "Their year of birth: " + yearOfBirth + 
+        "\nTheir weight: " + weight + 
+        "Kg\nTheir gender: " + gender;
+    }
+    public void getAthleteDetails(){
+        System.out.println(this.atheleDetails());
+    }
 }
