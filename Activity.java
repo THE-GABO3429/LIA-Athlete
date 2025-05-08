@@ -9,7 +9,6 @@ import java.util.HashMap;
 public class Activity
 {
     // instance variables - replace the example below with your own
-    private HashMap<String, String> mode;
     private PowerActivitys power;
     private ModePhysical pyshical;
     //+ intensity : Double
@@ -18,15 +17,26 @@ public class Activity
     //+ listAthletesByActivitys : HashMap
     //+ listAllModes
     //+ totalCaloriesBurntInActivity : Int
+    private String name;
+    private String mode;
+    private int caloriesBurned;
     /**
      * Constructor for objects of class Actitvity
      */
-    public Activity()
+    public Activity(String name, String mode, int calories)
     {
         
     }
     
     public void getActivitys(){
-        
+        this.name = name;
+        this.mode = mode;
+        this.caloriesBurned = caloriesBurned;
     }
+    
+    public String returnMessage() {
+        return name + " - " + mode + " - " + caloriesBurned + " calories";
+    }
+    
+    
 }

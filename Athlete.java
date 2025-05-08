@@ -8,9 +8,10 @@ import java.util.ArrayList;
 public class Athlete
 {
     // instance variables - replace the example below with your own
-    private int yearOfBirth;
-    private int weight;
-    private String gender;
+    private String firstName;
+    private String lastName;
+    private int birthYear;
+    
     
     //+ listActivitys : ArrayList
     //+ AtheleDetails: String
@@ -18,14 +19,18 @@ public class Athlete
     /**
      * Constructor for objects of class Athlete
      */
-    public Athlete(int yearOfBirth, int weight, String gender)
+    public Athlete(String firstName, String lastName, int birthYear)
     {
-        this.yearOfBirth = yearOfBirth;
-        this.weight = weight;
-        this.gender = gender;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthYear = birthYear;
+        
         
     }
 
+    
+    
+    
     /**
      * An example of a method - replace this comment with your own
      *
@@ -45,10 +50,10 @@ public class Athlete
     }
     
     
-    public static void main(String[] creatAthletes) {
-        Athlete a = new Athlete(25, 70, "Male");
-        System.out.println();
-    }
+    //public static void main(String[] creatAthletes) {
+        //Athlete a = new Athlete(25, 70, "Male");
+        //System.out.println();
+    
 
 
     
@@ -66,12 +71,11 @@ public class Athlete
     //    
     //}
     
-    public String atheleDetails(){
-        return "Their year of birth: " + yearOfBirth + 
-        "\nTheir weight: " + weight + 
-        "Kg\nTheir gender: " + gender;
-    }
-    public void getAthleteDetails(){
-        System.out.println(this.atheleDetails());
-    }
-}
+    //public String atheleDetails(){
+        //eiojeqiv
+        
+    
+    //public void getAthleteDetails(){
+        //System.out.println(this.atheleDetails());
+ }
+
