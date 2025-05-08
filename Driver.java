@@ -1,4 +1,5 @@
-
+import java.util.ArrayList;
+import java.util.Scanner;
 /**
  * Write a description of class Driver here.
  *
@@ -16,8 +17,8 @@ public class Driver
      */
     public Driver()
     {
-        // initialise instance variables
-        x = 0;
+        
+        
     }
 
     /**
@@ -26,9 +27,14 @@ public class Driver
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public static void main(String[] args)
     {
-        // put your code here
-        return x + y;
+     Scanner scanner = new Scanner(System.in);
+     ArrayList<String> Activities = new ArrayList<String>();
+       
+     
+     
+     
     }
+    
 }
