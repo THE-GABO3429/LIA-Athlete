@@ -79,7 +79,16 @@ public class Driver
         System.out.print("Year of Birth: ");
         int birthYear = Integer.parseInt(input.nextLine());
         
-        Athlete athlete = new Athlete(firstName, lastName, birthYear);
+        Gender gender = null;
+        while(gender == null){
+            System.out.println("Select gender: MALE / FEMALE / OTHER");
+            try{ gender = Gender.valueOf(input.nextLine().trim().toUpperCase());
+            }catch (IllegalArgumentException e){
+             System.out.println("Invalid input.");  
+            }
+        }
+        
+        Athlete athlete = new Athlete(firstName, lastName, birthYear, gender);
         athletes.add(athlete);
         System.out.println("Athlete added: " + athlete);
         

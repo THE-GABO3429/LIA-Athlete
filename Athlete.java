@@ -11,6 +11,7 @@ public class Athlete
     private String firstName;
     private String lastName;
     private int birthYear;
+    private Gender gender;
     
     
     //+ listActivitys : ArrayList
@@ -19,18 +20,18 @@ public class Athlete
     /**
      * Constructor for objects of class Athlete
      */
-    public Athlete(String firstName, String lastName, int birthYear)
+    public Athlete(String firstName, String lastName, int birthYear, Gender gender)
     {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthYear = birthYear;
-        
+        this.gender = gender;
         
     }
     @Override
 
      public String toString() {
-        return firstName + " " + lastName + " (" + birthYear + ")";
+        return firstName + " " + lastName + " (" + birthYear + "), Gender: "+ gender;
     }
     
     
