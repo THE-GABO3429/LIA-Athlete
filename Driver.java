@@ -33,7 +33,9 @@ public class Driver
     {
      Scanner scanner = new Scanner(System.in);
      Driver app = new Driver();
+     boolean running = true;
      
+     while(running){
      System.out.println("Menu");
      System.out.println("==================================================");
      System.out.println("A: Add a new Athlete");
@@ -51,15 +53,20 @@ public class Driver
          case "B": app.newActivity(scanner);
          break;
          
-         case "C": //listAthletes
+         case "C": app.listAllAthletes();
+         break;
          
-         case "D": //listActivites
+         case "D": app.listAllActivities();
+         break;
          
          case "E": System.out.println("Goodbye");
+         running = false;
          break;
          default: System.out.println("Invalid Try Again");
-     }
-     
+     } 
+    }
+     scanner.close();
+
     }
     
     public void newAthlete(Scanner input){
@@ -84,8 +91,6 @@ public class Driver
          */
     }
     
-    
-    
     public void newActivity(Scanner scanner){
         System.out.print("Enter activity name: ");
         String name = scanner.nextLine();
@@ -102,4 +107,26 @@ public class Driver
         System.out.println("Activity added: " + activity);
 
     }
-}
+    
+    public void listAllAthletes(){
+        if (athletes.isEmpty()){
+          System.out.println("No athletes have been detected.");
+        }else{
+            System.out.println("List of Athletes:");
+            for (Athlete a : athletes){
+                System.out.println(a);
+            }
+        }
+    }
+    
+    public void listAllActivities(){
+        if(activities.isEmpty()){
+            System.out.println("No activities detected.");
+        }else{
+            System.out.println("List of Activities:");
+            for(Activity a : activities){
+                System.out.println(a);
+            }
+        }
+        }
+    }

@@ -25,7 +25,9 @@ public class Activity
      */
     public Activity(String name, String mode, int calories)
     {
-        
+        this.name = name;
+        this.mode = mode;
+        this.caloriesBurned = calories;
     }
     
     public void getActivitys(){
@@ -34,7 +36,8 @@ public class Activity
         this.caloriesBurned = caloriesBurned;
     }
     
-    public String returnMessage() {
+    @Override
+    public String toString() {
         return name + " - " + mode + " - " + caloriesBurned + " calories";
     }
     
