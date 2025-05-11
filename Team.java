@@ -1,33 +1,52 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Team here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Team
-{
-    // instance variables - replace the example below with your own
-    private int x;
 
-    /**
-     * Constructor for objects of class Team
-     */
-    public Team()
-    {
-        // initialise instance variables
-        x = 0;
+public class Team {
+    private String teamName;
+    private Coach coach;
+    private ArrayList<Athlete> athletes;
+
+    public Team(String teamName, Coach coach) {
+        this.teamName = teamName;
+        this.coach = coach;
+        this.athletes = new ArrayList<>();
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    // Getters
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public Coach getCoach() {
+        return coach;
+    }
+
+    public ArrayList<Athlete> getAthletes() {
+        return athletes;
+    }
+
+    // Setters
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public void setCoach(Coach coach) {
+        this.coach = coach;
+    }
+
+    // Add athlete to the team
+    public void addAthlete(Athlete athlete) {
+        athletes.add(athlete);
+    }
+
+    @Override
+    public String toString() {
+        return "Team: " + teamName + "\nCoach: " + coach.getName() + "\nNumber of Athletes: " + athletes.size();
     }
 }
+
