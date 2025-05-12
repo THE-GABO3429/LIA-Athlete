@@ -6,35 +6,44 @@
  * @version (a version number or a date)
  */
 public class Coach {
-    private String name;
+    private String firstName;
+    private String lastName;
+    private int birthYear;
+    private Gender gender;
     private int experienceYears;
 
-    public Coach(String name, int experienceYears) {
-        this.name = name;
-        this.experienceYears = experienceYears;
+    public Coach(String firstName, String lastName, int birthYear, Gender gender)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthYear = birthYear;
+        this.gender = gender;
+        
     }
 
-    // Getters
-    public String getName() {
-        return name;
+    public String toString() {
+        return firstName + " " + lastName + " (" + birthYear + "), Gender: "+ gender;
     }
 
-    public int getExperienceYears() {
-        return experienceYears;
+    public String getFullName(){
+        return firstName + " " + lastName;
     }
+    //public int getExperienceYears() {
+    //    return experienceYears;
+    //}
 
     // Setters
-    public void setName(String name) {
-        this.name = name;
-    }
+    //public void setName(String name) {
+    //    this.name = name;
+    //}
 
-    public void setExperienceYears(int experienceYears) {
-        this.experienceYears = experienceYears;
-    }
+    //public void setExperienceYears(int experienceYears) {
+    //    this.experienceYears = experienceYears;
+    //}
 
-    @Override
-    public String toString() {
-        return "Coach: " + name + " | Experience: " + experienceYears + " years";
-    }
+    //@Override
+    //public String toString() {
+    //    return "Coach: " + name + " | Experience: " + experienceYears + " years";
+    //}
 }
 

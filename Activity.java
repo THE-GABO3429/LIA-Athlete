@@ -51,8 +51,12 @@ public class Activity
         return athlete;
     }
     
+    public String getName(){
+        return this.name;
+    }
+    
     public String getMode() {
-    return mode;
+        return mode;
     }
     
     public double getDistance() {
