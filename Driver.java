@@ -46,8 +46,9 @@ public class Driver
      System.out.println("F: List Activities by Athlete");
      System.out.println("G: List activities by mode");
      System.out.println("H: Calculate total distance by athlete");
-     System.out.println("I: Calculate total calories burned by athlete");
-     System.out.println("J: Exit");
+     System.out.println("I: Calculate total distance (all activities)");
+     System.out.println("J: Calculate total calories burned by athlete");
+     System.out.println("K: Exit");
        
      String input = scanner.nextLine().toUpperCase();
      
@@ -76,10 +77,13 @@ public class Driver
          case "H": app.calculateDistanceByAthlete(scanner);
          break;
          
-         case"I": app.calculateCaloriesByAthlete(scanner);
+         case "I": app.calculateTotalDistance();
          break;
          
-         case "J": System.out.println("Goodbye");
+         case"J": app.calculateCaloriesByAthlete(scanner);
+         break;
+         
+         case "K": System.out.println("Goodbye");
          running = false;
          break;
          default: System.out.println("Invalid Try Again");
@@ -325,4 +329,19 @@ public class Driver
     System.out.println("Total calories burned by " + selectedAthlete.getFullName() + ": " + totalCalories + " calories");
     }
     
-}
+    public void calculateTotalDistance() {
+    if (activities.isEmpty()) {
+        System.out.println("No activities to calculate.");
+        return;
+    }
+
+    double totalDistance = 0;
+
+    for (Activity a : activities) {
+        totalDistance += a.getDistance();
+    }
+
+    System.out.println("Total distance from all activities: " + totalDistance + " km");
+    }
+    
+   }
