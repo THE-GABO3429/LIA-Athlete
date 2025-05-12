@@ -9,31 +9,28 @@ import java.util.HashMap;
  */
 public class Equipment
 {
-    private ArrayList <String> equ = new ArrayList<>();
-    private HashMap<String, String> activity;
+    private String name;
+    private String activity;
     /**
      * Constructor for objects of class Equipment
      */
-    public Equipment()
+    public Equipment(String name, String activity)
     {
-        // initialise instance variables
-        equ.add("Skate");
-        equ.add("Bike");
-        equ.add("Skate");
-        equ.add("Skate");
-        equ.add("Skate");
+        this.name = name;
+        this.activity = activity;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public void listAllEquipments()
-    {
-        for(String equipment : equ){
-            System.out.println(equipment);
-        }
+     public String getName() {
+        return name;
+    }
+
+    public String getActivity() {
+        return activity;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (used for " + activity + ")";
     }
 }
+

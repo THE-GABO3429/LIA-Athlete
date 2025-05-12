@@ -40,9 +40,11 @@ public class Driver
      System.out.println("==================================================");
      System.out.println("A: Add a new Athlete");
      System.out.println("B: Add a new Activity");
-     System.out.println("C: List all Athletes");
-     System.out.println("D: List all Activities");
-     System.out.println("E: Exit");
+     System.out.println("C: Assign equipment to an athlete");
+     System.out.println("D: List all Athletes");
+     System.out.println("E: List all Activities");
+     System.out.println("F: List Activities by Athlete"); 
+     System.out.println("G: Exit");
        
      String input = scanner.nextLine().toUpperCase();
      
@@ -53,13 +55,19 @@ public class Driver
          case "B": app.newActivity(scanner);
          break;
          
-         case "C": app.listAllAthletes();
+         case "C": app.assignEquipmentToAthlete(scanner);
          break;
          
-         case "D": app.listAllActivities();
+         case "D": app.listAllAthletes();
          break;
          
-         case "E": System.out.println("Goodbye");
+         case "E": app.listAllActivities();
+         break;
+         
+         case "F": app.listActivitiesByAthlete(scanner);
+         break;
+         
+         case "G": System.out.println("Goodbye");
          running = false;
          break;
          default: System.out.println("Invalid Try Again");
@@ -91,13 +99,6 @@ public class Driver
         Athlete athlete = new Athlete(firstName, lastName, birthYear, gender);
         athletes.add(athlete);
         System.out.println("Athlete added: " + athlete);
-        
-        /**
-         * TO BE FINSHED GENDER*
-         * 
-         * 
-         * 
-         */
     }
     
     public void newActivity(Scanner scanner){
@@ -110,7 +111,36 @@ public class Driver
         System.out.print("Enter calories burned: ");
         int calories = Integer.parseInt(scanner.nextLine());
         
-        Activity activity = new Activity(name, mode, calories);
+        if(athletes.isEmpty()){
+            System.out.println("No athletes found. Please add an athlete first.");
+            return;
+        }
+        
+        System.out.println("Activity preformed:");
+        for (int i = 0; i < athletes.size(); i++) {
+            System.out.println(i + ": " + athletes.get(i).getFullName());    
+        } 
+        
+        int index = Integer.parseInt(scanner.nextLine());
+        if (index < 0 || index >= athletes.size()) {
+        System.out.println("Invalid selection.");
+        return;
+        }
+        
+        Athlete selectedAthlete = athletes.get(index);
+        
+        System.out.print("Enter equipment name (or press Enter to skip): ");
+        String equipmentName = scanner.nextLine();
+        
+        Equipment equipment = null;
+        
+        if(!equipmentName.isEmpty()){
+            System.out.print("Enter activity this equipment is used for: ");
+            String equipmentActivity = scanner.nextLine();
+            equipment = new Equipment(equipmentName, equipmentActivity);
+        }
+        
+        Activity activity = new Activity(name, mode, calories, selectedAthlete, equipment);
         activities.add(activity);
         
         System.out.println("Activity added: " + activity);
@@ -138,4 +168,71 @@ public class Driver
             }
         }
         }
+        
+    public void listActivitiesByAthlete(Scanner scanner){
+        if(athletes.isEmpty()){
+            System.out.println("No athletes have been detected.");
+            return;
+        }
+        System.out.println("Choose an athlete");
+        for(int i = 0; i < athletes.size(); i++){
+            System.out.println(i + ": " + athletes.get(i).getFullName());
+        }
+        int index;
+        try{
+            index = Integer.parseInt(scanner.nextLine());
+            if(index < 0 || index>= athletes.size()){
+                System.out.println("Invaild selection.");
+                return;
+            }
+            }catch(NumberFormatException e){
+                System.out.println("Invalid number.");
+                return;
+            }
+        Athlete selectedAthlete = athletes.get(index);
+        System.out.println("Activities by " + selectedAthlete.getFullName() + ":");
+        
+        boolean found = false;
+        for(Activity a : activities){
+            if(a.getAthlete() != null && a.getAthlete() == selectedAthlete){
+                System.out.println(a);
+                found = true;
+            }
+        }
+        if(!found){
+            System.out.println("No activities found for this athlete.");
+        }
+        }
+        
+    public void assignEquipmentToAthlete(Scanner scanner) {
+    if (athletes.isEmpty()) {
+        System.out.println("No athletes available.");
+        return;
+    }    
+    
+    System.out.println("Choose an athlete:");
+    for (int i = 0; i < athletes.size(); i++) {
+        System.out.println(i + ": " + athletes.get(i).getFullName());
     }
+    
+    int index = Integer.parseInt(scanner.nextLine());
+    if (index < 0 || index >= athletes.size()) {
+        System.out.println("Invalid selection.");
+        return;
+    }
+    
+    Athlete selectedAthlete = athletes.get(index);
+    
+    System.out.print("Enter equipment name: ");
+    String equipmentName = scanner.nextLine();
+    
+    System.out.print("Enter activity this equipment is used for (e.g., Running, Soccer): ");
+    String equipmentActivity = scanner.nextLine();
+    
+    Equipment newEquipment = new Equipment(equipmentName, equipmentActivity);
+    selectedAthlete.addEquipment(newEquipment);
+    
+    System.out.println("Equipment added to " + selectedAthlete.getFullName());
+    
+    }
+}

@@ -12,7 +12,7 @@ public class Athlete
     private String lastName;
     private int birthYear;
     private Gender gender;
-    
+    private ArrayList<Equipment> equipmentList = new ArrayList<>();
     
     //+ listActivitys : ArrayList
     //+ AtheleDetails: String
@@ -53,33 +53,28 @@ public class Athlete
         System.out.println(distance);
     }
     
+    public String getFullName(){
+        return firstName + " " + lastName;
+    }
     
-    //public static void main(String[] creatAthletes) {
-        //Athlete a = new Athlete(25, 70, "Male");
-        //System.out.println();
+     public void addEquipment(Equipment equipment) {
+        equipmentList.add(equipment);
+    }
     
+    public ArrayList<Equipment> getEquipmentList(){
+        return equipmentList;
+    }
 
+    public void listEquipment() {
+        if (equipmentList.isEmpty()) {
+            System.out.println("No equipment for this athlete.");
+        } else {
+            System.out.println("Equipment used by " + getFullName() + ":");
+            for (Equipment e : equipmentList) {
+                System.out.println("- " + e);
+            }
+        }
+    }
+}
 
-    
-    
-    //public int age(insertAge){
-      //  return age;
-    //}
-    
-    //private void weightInKg(){
-     //   int weight = 200;
-       // System.out.println(weight);
-    //}
-    
-    //private String gender(String Male, String Female, String Other){
-    //    
-    //}
-    
-    //public String atheleDetails(){
-        //eiojeqiv
-        
-    
-    //public void getAthleteDetails(){
-        //System.out.println(this.atheleDetails());
- }
 

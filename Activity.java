@@ -20,14 +20,18 @@ public class Activity
     private String name;
     private String mode;
     private int caloriesBurned;
+    private Athlete athlete;
+    private Equipment equipment;
     /**
      * Constructor for objects of class Actitvity
      */
-    public Activity(String name, String mode, int calories)
+    public Activity(String name, String mode, int calories, Athlete athlete, Equipment equipment)
     {
         this.name = name;
         this.mode = mode;
         this.caloriesBurned = calories;
+        this.athlete = athlete;
+        this.equipment = equipment;
     }
     
     public void getActivitys(){
@@ -41,5 +45,7 @@ public class Activity
         return name + " - " + mode + " - " + caloriesBurned + " calories";
     }
     
-    
+    public Athlete getAthlete(){
+        return athlete;
+    }
 }
