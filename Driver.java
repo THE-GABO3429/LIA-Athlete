@@ -43,8 +43,11 @@ public class Driver
      System.out.println("C: Assign equipment to an athlete");
      System.out.println("D: List all Athletes");
      System.out.println("E: List all Activities");
-     System.out.println("F: List Activities by Athlete"); 
-     System.out.println("G: Exit");
+     System.out.println("F: List Activities by Athlete");
+     System.out.println("G: List activities by mode");
+     System.out.println("H: Calculate total distance by athlete");
+     System.out.println("I: Calculate total calories burned by athlete");
+     System.out.println("J: Exit");
        
      String input = scanner.nextLine().toUpperCase();
      
@@ -67,7 +70,16 @@ public class Driver
          case "F": app.listActivitiesByAthlete(scanner);
          break;
          
-         case "G": System.out.println("Goodbye");
+         case "G": app.listActivitiesByMode(scanner);
+         break;
+         
+         case "H": app.calculateDistanceByAthlete(scanner);
+         break;
+         
+         case"I": app.calculateCaloriesByAthlete(scanner);
+         break;
+         
+         case "J": System.out.println("Goodbye");
          running = false;
          break;
          default: System.out.println("Invalid Try Again");
@@ -111,6 +123,9 @@ public class Driver
         System.out.print("Enter calories burned: ");
         int calories = Integer.parseInt(scanner.nextLine());
         
+        System.out.print("Enter distance (in kilometers): ");
+        double distance = Double.parseDouble(scanner.nextLine());
+        
         if(athletes.isEmpty()){
             System.out.println("No athletes found. Please add an athlete first.");
             return;
@@ -140,7 +155,7 @@ public class Driver
             equipment = new Equipment(equipmentName, equipmentActivity);
         }
         
-        Activity activity = new Activity(name, mode, calories, selectedAthlete, equipment);
+        Activity activity = new Activity(name, mode, calories, selectedAthlete, equipment, distance);
         activities.add(activity);
         
         System.out.println("Activity added: " + activity);
@@ -235,4 +250,79 @@ public class Driver
     System.out.println("Equipment added to " + selectedAthlete.getFullName());
     
     }
+    
+    public void listActivitiesByMode(Scanner scanner) {
+    if (activities.isEmpty()) {
+        System.out.println("No activities to list.");
+        return;
+    
+        }
+  
+
+    System.out.print("Enter activity mode to filter by (e.g., Running, Soccer): ");
+    String targetMode = scanner.nextLine().trim();
+
+    boolean found = false;
+    for (Activity a : activities) {
+        if (a.getMode().equalsIgnoreCase(targetMode)) {
+            System.out.println(a);
+            found = true;
+        }
+    }
+
+    if (!found) {
+        System.out.println("No activities found for mode: " + targetMode);
+    }
+    }
+    
+    public void calculateDistanceByAthlete(Scanner scanner) {
+    if (athletes.isEmpty()) {
+        System.out.println("No athletes to choose from.");
+        return;
+    }
+
+    System.out.println("Choose an athlete:");
+    for (int i = 0; i < athletes.size(); i++) {
+        System.out.println(i + ": " + athletes.get(i).getFullName());
+    }
+
+    int index = Integer.parseInt(scanner.nextLine());
+    Athlete selectedAthlete = athletes.get(index);
+
+    double totalDistance = 0;
+
+    for (Activity a : activities) {
+        if (a.getAthlete().equals(selectedAthlete)) {
+            totalDistance += a.getDistance();
+        }
+    }
+
+    System.out.println("Total distance by " + selectedAthlete.getFullName() + ": " + totalDistance + " km");
+    }
+    
+    public void calculateCaloriesByAthlete(Scanner scanner) {
+    if (athletes.isEmpty()) {
+        System.out.println("No athletes to choose from.");
+        return;
+    }
+
+    System.out.println("Choose an athlete:");
+    for (int i = 0; i < athletes.size(); i++) {
+        System.out.println(i + ": " + athletes.get(i).getFullName());
+    }
+
+    int index = Integer.parseInt(scanner.nextLine());
+    Athlete selectedAthlete = athletes.get(index);
+
+    int totalCalories = 0;
+
+    for (Activity a : activities) {
+        if (a.getAthlete().equals(selectedAthlete)) {
+            totalCalories += a.getCaloriesBurned();
+        }
+    }
+
+    System.out.println("Total calories burned by " + selectedAthlete.getFullName() + ": " + totalCalories + " calories");
+    }
+    
 }
