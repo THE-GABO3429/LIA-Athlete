@@ -43,15 +43,16 @@ public class Driver
             System.out.println("B: Add a new Activity");
             System.out.println("C: Add a new Coach");
             System.out.println("D: Assign equipment to an athlete");
-            System.out.println("E: List all Athletes");
-            System.out.println("F: List all Activities");
-            System.out.println("G: List all Coaches");
-            System.out.println("H: List Activities by Athlete");
-            System.out.println("I: List activities by mode");
-            System.out.println("J: Calculate total distance by athlete");
-            System.out.println("K: Calculate total distance (all activities)");
-            System.out.println("L: Calculate total calories burned by athlete");
-            System.out.println("M: Exit");
+            System.out.println("E: Assign a Coach to an Activity");
+            System.out.println("F: List all Athletes");
+            System.out.println("G: List all Activities");
+            System.out.println("H: List all Coaches");
+            System.out.println("I: List Activities by Athlete");
+            System.out.println("J: List activities by mode");
+            System.out.println("K: Calculate total distance by athlete");
+            System.out.println("L: Calculate total distance (all activities)");
+            System.out.println("M: Calculate total calories burned by athlete");
+            System.out.println("N: Exit");
        
             String input = scanner.nextLine().toUpperCase();
      
@@ -67,32 +68,35 @@ public class Driver
          
                 case "D": app.assignEquipmentToAthlete(scanner);
                 break;
-         
-                case "E": app.listAllAthletes();
+                
+                case "E": app.assignCoachToActivity(scanner);
                 break;
          
-                case "F": app.listAllActivities();
+                case "F": app.listAllAthletes();
+                break;
+         
+                case "G": app.listAllActivities();
                 break;
                 
-                case "G":app.listAllCoachs();
+                case "H":app.listAllCoachs();
                 break;
          
-                case "H": app.listActivitiesByAthlete(scanner);
+                case "I": app.listActivitiesByAthlete(scanner);
                 break;
          
-                case "I": app.listActivitiesByMode(scanner);
+                case "J": app.listActivitiesByMode(scanner);
                 break;
          
-                case "J": app.calculateDistanceByAthlete(scanner);
+                case "K": app.calculateDistanceByAthlete(scanner);
                 break;
          
-                case "K": app.calculateTotalDistance();
+                case "L": app.calculateTotalDistance();
                 break;
          
-                case "L": app.calculateCaloriesByAthlete(scanner);
+                case "M": app.calculateCaloriesByAthlete(scanner);
                 break;
          
-                case "M": System.out.println("Goodbye");
+                case "N": System.out.println("Goodbye");
                 running = false;
                 break;
                 default: System.out.println("Invalid Try Again");
@@ -374,7 +378,7 @@ public class Driver
         
         Coach coach = new Coach(firstName, lastName, birthYear, gender);
         coachs.add(coach);
-        System.out.println("Coach added: " + athlete);
+        System.out.println("Coach added: " + coach);
     }
 
     public void listAllCoachs(){
@@ -386,55 +390,68 @@ public class Driver
                 System.out.println(a);
             }
         }
-    }
-    
-    public void assignCoaches(Scanner scanner){
-        if (activities.isEmpty()) {
-            System.out.println("No activities to list.");
-            return;
+        
+        boolean found = false;
+        for (Activity act : activities) {
+                if (act.getCoach() != null && act.getCoach().equals(x)) {
+                    System.out.println("  Assigned to: " + act.getName() + " (" + act.getMode() + ")");
+                    found = true;
+                }
+            }
+
+        if (!found) {
+                System.out.println("  No activities assigned.");
+            }
+
         }
         
-        if (coachs.isEmpty()) {
-            System.out.println("No coaches available.");
-            return;
-        }
-        
-        System.out.println("Choose an Coach:");
-        for (int i = 0; i < coachs.size(); i++) {
-            System.out.println(i + ": " + coachs.get(i).getFullName());
-        }
     
-        int coachIndex;
-        try {
-            coachIndex = Integer.parseInt(scanner.nextLine());
-            if (coachIndex < 0 || coachIndex >= coachs.size()) {
-                System.out.println("Invalid selection.");
-                return;
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid number.");
+    
+     public void assignCoachToActivity(Scanner scanner) {
+     if (activities.isEmpty() || coachs.isEmpty()){
+         System.out.println("One coach or activity must exist");
+         return;
+         
+     }
+    
+     System.out.println("Choose an activity:");
+     for(int i=0;i< activities.size();i++){
+         System.out.println(i + ": " + activities.get(i).getName());
+     }
+     
+     int activityIndex;
+    try {
+        activityIndex = Integer.parseInt(scanner.nextLine());
+        if (activityIndex < 0 || activityIndex >= activities.size()) {
+            System.out.println("Invalid activity selection.");
             return;
         }
-
-        Coach selectedCoach = coachs.get(coachIndex);
-
-        System.out.print("Enter the name of the activity to assign the coach to: ");
-        String activityName = scanner.nextLine().trim();
-
-        boolean activityFound = false;
-
-        for (Activity activity : activities) {
-            if (activity.getName().equalsIgnoreCase(activityName)) {
-                activity.setCoach(selectedCoach);  // Ensure `setCoach()` exists in your Activity class
-                System.out.println("Coach " + selectedCoach.getFullName() + " assigned to activity: " + activity.getName());
-                activityFound = true;
-                break;
-            }
-        }
-
-        if (!activityFound) {
-            System.out.println("There's no activity by that name.");
-        }
+    } catch (NumberFormatException e) {
+        System.out.println("Please enter a valid number.");
+        return;
     }
-    
+
+    Activity selectedActivity = activities.get(activityIndex);
+
+    System.out.println("Choose a coach:");
+    for (int i = 0; i < coachs.size(); i++) {
+        System.out.println(i + ": " + coachs.get(i).getFullName());
+    }
+
+    int coachIndex;
+    try {
+        coachIndex = Integer.parseInt(scanner.nextLine());
+        if (coachIndex < 0 || coachIndex >= coachs.size()) {
+            System.out.println("Invalid coach selection.");
+            return;
+        }
+    } catch (NumberFormatException e) {
+        System.out.println("Please enter a valid number.");
+        return;
+    }
+
+    Coach selectedCoach = coachs.get(coachIndex);
+    selectedActivity.setCoach(selectedCoach);
+    System.out.println("Coach " + selectedCoach.getFullName() + " assigned to activity: " + selectedActivity.getName());
+    }
 }

@@ -28,22 +28,6 @@ public class Coach {
     public String getFullName(){
         return firstName + " " + lastName;
     }
-    //public int getExperienceYears() {
-    //    return experienceYears;
-    //}
-
-    // Setters
-    //public void setName(String name) {
-    //    this.name = name;
-    //}
-
-    //public void setExperienceYears(int experienceYears) {
-    //    this.experienceYears = experienceYears;
-    //}
-
-    //@Override
-    //public String toString() {
-    //    return "Coach: " + name + " | Experience: " + experienceYears + " years";
-    //}
+    
 }
 
