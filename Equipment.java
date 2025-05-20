@@ -2,10 +2,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Write a description of class Equipment here.
+ * Place holder for Equipment
  *
- * @author (your name)
- * @version (a version number or a date)
+ * 
  */
 public class Equipment
 {

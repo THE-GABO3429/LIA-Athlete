@@ -1,9 +1,8 @@
 
 /**
- * Write a description of class Coach here.
+ * Place holder for coaches
  *
- * @author (your name)
- * @version (a version number or a date)
+ * 
  */
 public class Coach {
     private String firstName;

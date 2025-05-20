@@ -1,10 +1,10 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
- * Write a description of class Driver here.
+ * The main class of the whole porject controls and holds everything together
  *
- * @author (your name)
- * @version (a version number or a date)
+ * 
  */
 public class Driver
 {

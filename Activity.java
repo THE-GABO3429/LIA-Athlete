@@ -1,10 +1,9 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 /**
- * Write a description of class Actitvity here.
+ * Place holder for activites 
  *
- * @author (your name)
- * @version (a version number or a date)
+ * 
  */
 public class Activity
 {

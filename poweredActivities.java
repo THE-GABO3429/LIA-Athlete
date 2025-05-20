@@ -1,10 +1,9 @@
 import java.util.HashMap;
 
 /**
- * Write a description of class Mode here.
+ * Adds [powered] if the activity is a powered activity
  *
- * @author (your name)
- * @version (a version number or a date)
+ * 
  */
 public class poweredActivities extends Activity
 {
