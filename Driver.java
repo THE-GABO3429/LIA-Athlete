@@ -37,66 +37,30 @@ public class Driver
         boolean running = true;
      
         while(running){
-            System.out.println("Menu");
+            System.out.println("Main Menu");
             System.out.println("==================================================");
-            System.out.println("A: Add a new Athlete");
-            System.out.println("B: Add a new Activity");
-            System.out.println("C: Add a new Coach");
-            System.out.println("D: Assign equipment to an athlete");
-            System.out.println("E: Assign a Coach to an Activity");
-            System.out.println("F: List all Athletes");
-            System.out.println("G: List all Activities");
-            System.out.println("H: List all Coaches");
-            System.out.println("I: List Activities by Athlete");
-            System.out.println("J: List activities by mode");
-            System.out.println("K: Calculate total distance by athlete");
-            System.out.println("L: Calculate total distance (all activities)");
-            System.out.println("M: Calculate total calories burned by athlete");
-            System.out.println("N: Exit");
-       
+            System.out.println("A: Add");
+            System.out.println("B: Assign");
+            System.out.println("C: List");
+            System.out.println("D: Calculate");
+            System.out.println("E: Exit");
+            System.out.print("Enter your choice: ");
             String input = scanner.nextLine().toUpperCase();
      
             switch(input){
-                case "A":app.newAthlete(scanner);
+                case "A": showAddMenu(app, scanner);
                 break;
          
-                case "B": app.newActivity(scanner);
+                case "B": showAssignMenu(app, scanner);
                 break;
                 
-                case "C": app.creatCoach(scanner);
+                case "C": showListMenu(app, scanner);
                 break;
          
-                case "D": app.assignEquipmentToAthlete(scanner);
+                case "D": showCalculateMenu(app, scanner);
                 break;
                 
-                case "E": app.assignCoachToActivity(scanner);
-                break;
-         
-                case "F": app.listAllAthletes();
-                break;
-         
-                case "G": app.listAllActivities();
-                break;
-                
-                case "H":app.listAllCoachs();
-                break;
-         
-                case "I": app.listActivitiesByAthlete(scanner);
-                break;
-         
-                case "J": app.listActivitiesByMode(scanner);
-                break;
-         
-                case "K": app.calculateDistanceByAthlete(scanner);
-                break;
-         
-                case "L": app.calculateTotalDistance();
-                break;
-         
-                case "M": app.calculateCaloriesByAthlete(scanner);
-                break;
-         
-                case "N": System.out.println("Goodbye");
+                case "E": System.out.println("Goodbye");
                 running = false;
                 break;
                 default: System.out.println("Invalid Try Again");
@@ -104,6 +68,72 @@ public class Driver
         }
         scanner.close();
 
+    }
+    
+    private static void showAddMenu(Driver app, Scanner scanner){
+        System.out.println("Add Menu");
+        System.out.println("A: New Athlete");
+        System.out.println("B: New Activity");
+        System.out.println("C: New Coach");
+        System.out.print("Enter your choice: ");
+        String input = scanner.nextLine().toUpperCase();
+        
+        switch(input){
+            case "A": app.newAthlete(scanner); break;
+            case "B": app.newActivity(scanner); break;
+            case "C": app.creatCoach(scanner); break;
+            default: System.out.println("Invalid input.");
+        }
+    }
+    
+    private static void showAssignMenu(Driver app,Scanner scanner){
+        System.out.println("Assign Menu");
+        System.out.println("A: Equipment to Athlete");
+        System.out.println("B: Coach to Activity");
+        System.out.print("Enter your choice: ");
+        String input = scanner.nextLine().toUpperCase();
+        
+        switch (input){
+            case "A": app.assignEquipmentToAthlete(scanner); break;
+            case "B": app.assignCoachToActivity(scanner); break;
+            default: System.out.println("Invalid input.");
+        }
+    }
+    
+    private static void showListMenu(Driver app, Scanner scanner){
+        System.out.println("List Menu");
+        System.out.println("A: All Athletes");
+        System.out.println("B: All Activities");
+        System.out.println("C: All Coaches");
+        System.out.println("D: Activities by Athlete");
+        System.out.println("E: Activities by Mode");
+        System.out.print("Enter your choice: ");
+        String input = scanner.nextLine().toUpperCase();
+        
+        switch(input){
+            case "A": app.listAllAthletes(); break;
+            case "B": app.listAllActivities(); break;
+            case "C": app.listAllCoachs(); break;
+            case "D": app.listActivitiesByAthlete(scanner); break;
+            case "E": app.listActivitiesByMode(scanner); break;
+            default: System.out.println("Invalid input.");
+        }
+    }
+    
+    private static void showCalculateMenu(Driver app, Scanner scanner){
+        System.out.println("Calculate Menu");
+        System.out.println("A: Distance by Athlete");
+        System.out.println("B: Total Distance (All)");
+        System.out.println("C: Calories Burned by Athlete");
+        System.out.print("Enter your choice: ");
+        String input = scanner.nextLine().toUpperCase();
+        
+        switch(input){
+            case "A": app.calculateDistanceByAthlete(scanner); break;
+            case "B": app.calculateTotalDistance(); break;
+            case "C": app.calculateCaloriesByAthlete(scanner); break;
+            default: System.out.println("Invalid input.");
+        }
     }
     
     public void newAthlete(Scanner input){
